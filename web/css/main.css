@@ -1,0 +1,104 @@
+@import '../fonts/harabarahand/stylesheet.css';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 100%;
+}
+body {
+    position: relative;
+    background: rgb(80,80,80);
+    
+}
+
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    background: url('../images/bg.jpg') no-repeat center center;
+    background-size: cover;
+    
+    animation-name: scalebg;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+.centerXY {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'harabarahanditalic';
+    font-size: 300%;
+    color: white;
+    text-shadow: 0 0 .2em #000;
+    opacity: .8;
+    margin-bottom: .5em;
+    position: relative;
+}
+h1 span {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: .75rem;
+    display: block;
+    text-align: right;
+    opacity: .5;
+    
+}
+button {
+    width: 80%;
+    border: none;
+    color: rgb(50,50,50);
+    background: rgb(255,255,255);
+    opacity: .7;
+    box-sizing: border-box;
+    padding: .5em 1em;
+    border-radius: .2em;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0 .3em rgba(0,0,0, .7);
+    
+}
+
+button:hover {
+    opacity: .85;
+}
+
+.link-docs {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    color: white;
+    text-decoration: none;
+    opacity: .8;
+    transition: all .2s ease-in-out;
+    font-weight: 100;
+    letter-spacing: .1em;
+}
+
+.link-docs:hover {
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes scalebg {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

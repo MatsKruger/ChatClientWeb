@@ -1,0 +1,26 @@
+body {
+    
+}
+#top {
+    background: rgb(150,50,30);
+}
+.navbar-brand img {
+    height: 100%;
+    width: auto;
+    opacity: .5;
+    transition: all .2s ease-in-out;
+}
+.navbar-brand:hover img {
+    opacity: 1;
+}
+.nav>li>a {
+    color: white;
+    transition: all .2s ease-in-out;
+}
+.navbar-static-top {
+    border-width: 0;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background: rgba(0,0,0, .2);
+}
