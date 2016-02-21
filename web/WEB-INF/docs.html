@@ -64,12 +64,10 @@ and open the template in the editor.
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <h1>Client</h1>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+                        <p>The Client will connect to a server specified by a predefined ip-address and port number. Hereafter all of the transactions between the server and the client will be managed by the clienthandler.  Basically the client has been set up as a simple tool that will make sure the user can send and receive input. 
+                            <br><kbd>USERS#{NAME1,NAME2,...}</kbd><br>
+                            <kbd>MESSAGE#{sender}#{message}</kbd><br>
+                            <kbd>LOGOUT#</kbd>
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -83,11 +81,11 @@ and open the template in the editor.
                             In the top left you can see your username, and in the top right there is a logout button.</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <h1>Tests</h1>
-                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
-                            omnis voluptas assumenda est, omnis dolor repellendus. 
-                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
-                            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                        <h1>Test</h1>
+                        <p>Testing is to make sure that our programs run probably or it will give us the chance find the flaws in our code before anyone else if tested correctly. 
+                            We are running 3 tests in our ChatTest class. Firstly, we are testing to see if what we are sending also is the correct thing we are receiving. Secondly, we are testing the creation of a user and thirdly, we are testing to see if 2 users can log on the server at the same time and then to see if one of them is able to log off again. 
+                            While testing, the clients are created in threads so that they will run simultaneously.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -232,7 +230,7 @@ public void send() throws IOException, InterruptedException {
                             <li>Trådens metode join bliver kaldt, så den venter på at observer får et svar så den kan stoppe for ChatClient ved hjælp af metoden stop</li>
                             <li>assertEquals tester på testString for at se om resultatet er som vi regner med.</li>
                         </ol>
-                        
+
                         <h4>Den fulde test kode er følgende:</h4>
                         <pre><code>public class ChatTest {
     public ChatTest() {
@@ -363,7 +361,7 @@ public void send() throws IOException, InterruptedException {
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <h1>GUI</h1>
-                        <p>When you open the chat client you need to enter a username in the prompt to continue. For the GUI we have a chat window for all the messages, a windows with all the users who is connected, where you can choose who you wanna write to, and an input box where you can write your message. To send your message, either press the send button or enter. In the top left you can see your username, and in the top right there is a logout button.</p>
+                        <p>Here you can see a visual edition of the gui to the end-user. Click on each image to enhance it. All of the gui functions are described below and will give a self-explanatory idea of the gui.</p>
                         <a href="./images/GUI.png" target="_blank" style="display: block; width: 100%;"><img style="width: 100%;" src="./images/GUI.png" alt="GUI Description"></a>
                     </div>
                 </div>
