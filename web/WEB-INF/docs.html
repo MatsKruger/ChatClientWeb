@@ -51,6 +51,46 @@ and open the template in the editor.
                 </nav>
             </div>
         </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <h1>Server</h1>
+                    <p>The server will listen to the IP and port given by arguments, 
+                        and accept connections that starts a new client handler, which run in a separate thread so the server can accept new connections.
+                        The client handler waits for input from the connected client, and can only respond to the protocol:<br>
+                        <kbd>USER#{name}</kbd><br>
+                        <kbd>SEND#{receivers}#{message}</kbd><br>
+                        <kbd>LOGOUT#</kbd></p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <h1>Client</h1>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <h1>GUI</h1>
+                    <p>When you open the chat client you need to enter a username in the prompt to continue.
+                        For the GUI we have a chat window for all the messages, 
+                        a windows with all the users who is connected, 
+                        where you can choose who you wanna write to,
+                        and an input box where you can write your message.
+                        To send your message, either press the send button or enter.
+                        In the top left you can see your username, and in the top right there is a logout button.</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <h1>Tests</h1>
+                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
+                        omnis voluptas assumenda est, omnis dolor repellendus. 
+                        Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
+                        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                </div>
+            </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </body>
