@@ -16,7 +16,12 @@ navbar.addEventListener('click', function(e) {
             }
             listItem.classList.add('active');
             showContainer(target.hash.substring(1));
-            window.location.hash = target.hash;
+            if(history.pushState) {
+                history.pushState(null, null, target.hash);
+            }
+            else {
+                location.hash = target.hash;
+            }
         }       
         
         

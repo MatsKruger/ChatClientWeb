@@ -36,3 +36,12 @@
 td, p {
     max-width: 40em;
 }
+footer {
+    background: #2a2730;
+    color: white;
+    margin-top: 2em;
+    padding: 1em;
+}
+footer p {
+    margin: 0;
+}
