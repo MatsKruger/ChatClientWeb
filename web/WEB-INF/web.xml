@@ -5,4 +5,28 @@
             30
         </session-timeout>
     </session-config>
+    <security-constraint>
+        <display-name>Docs</display-name>
+        <web-resource-collection>
+            <web-resource-name>Docs</web-resource-name>
+            <description>Docs</description>
+            <url-pattern>/docs/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>test</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>DIGEST</auth-method>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>test</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>admin</role-name>
+    </security-role>
 </web-app>
