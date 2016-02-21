@@ -31,17 +31,15 @@ and open the template in the editor.
                             <a href="#description">A short description</a> 
                         </li> 
                         <li> 
-                            <a href="../css/">CSS</a> 
-                        </li> 
-                        <li class="active"> 
-                            <a href="../components/">Components</a> 
+                            <a href="#protocol">Protocol</a> 
                         </li> 
                         <li> 
-                            <a href="../javascript/">JavaScript</a> 
+                            <a href="#test">Test</a> 
                         </li> 
                         <li> 
-                            <a href="../customize/">Customize</a> 
+                            <a href="#gui">GUI</a> 
                         </li> 
+
                     </ul> 
                     <ul class="nav navbar-nav navbar-right"> 
                         <li>
@@ -51,47 +49,301 @@ and open the template in the editor.
                 </nav>
             </div>
         </header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <h1>Server</h1>
-                    <p>The server will listen to the IP and port given by arguments, 
-                        and accept connections that starts a new client handler, which run in a separate thread so the server can accept new connections.
-                        The client handler waits for input from the connected client, and can only respond to the protocol:<br>
-                        <kbd>USER#{name}</kbd><br>
-                        <kbd>SEND#{receivers}#{message}</kbd><br>
-                        <kbd>LOGOUT#</kbd></p>
+        <div class="main">
+            <!-- A short description -->
+            <div class="container" id="description">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1>A short description</h1>
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
+                            omnis voluptas assumenda est, omnis dolor repellendus. 
+                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
+                            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <h1>Client</h1>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                    </p>
+            </div>
+
+            <!-- Protocol -->
+            <div class="container" id="protocol">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1>Protocol</h1>
+                        <p>This protocol must be used by all teams when implementing the Chat Server and Client
+                            Tags must be uppercased as given below, and don’t add any additional spaces.
+                            You can assume that usernames are unique </p>
+                        <h3>Commands clients can send to the server</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>USER#{NAME}</td>
+                                    <td>Tag that includes the
+                                        username of the client (for
+                                        this CA it us assumed that
+                                        all users already have a
+                                        unique name)
+                                        MUST be sent as the first
+                                        command, and can ONLY
+                                        be sent once</td>
+                                    <td>USER#Peter</td>
+                                </tr>
+                                <tr>
+                                    <td>SEND#{receivers)#{message}</td>
+                                    <td>Tag used to send
+                                        messages, which includes
+                                        both the receiver(s) and
+                                        the message.
+                                        (receiver must be a name
+                                        received via a USERS#
+                                        command)</td>
+
+                                    <td>SEND#Peter#Hello Peter<br>
+                                        SEND#Peter,Hans#Hello Peter &
+                                        Hans<br>
+                                        SEND#*#Hello everybody</td>
+                                </tr>
+                                <tr>
+                                    <td>LOGOUT#</td>
+                                    <td>Notify the server that it
+                                        can close the connection
+                                        for this client</td>
+                                    <td>LOGOUT#</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Commands a Sever can send to clients</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>USERS#{NAME1,NAME2,...}</td>
+                                    <td>Tag that includes all
+                                        users currently online
+                                        (comma delimited).
+                                        Must be sent:
+                                        • Right after a new
+                                        Client has connected
+                                        • Right after an
+                                        existing Client has
+                                        disconnected</td>
+                                    <td>USERS#Lars,Thomas,Athinodoros</td>
+                                </tr>
+                                <tr>
+                                    <td>MESSAGE #{sender)#{message}</td>
+                                    <td>Used to forward a
+                                        message received from a
+                                        client (sender) to the
+                                        receiver(s)</td>
+
+                                    <td>MESSAGE#Peter#Hello from Peter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <h1>GUI</h1>
-                    <p>When you open the chat client you need to enter a username in the prompt to continue.
-                        For the GUI we have a chat window for all the messages, 
-                        a windows with all the users who is connected, 
-                        where you can choose who you wanna write to,
-                        and an input box where you can write your message.
-                        To send your message, either press the send button or enter.
-                        In the top left you can see your username, and in the top right there is a logout button.</p>
+            </div>
+
+            <!-- Test -->
+            <div class="container" id="test">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1>Test</h1>
+                        <p><strong>Serveren er blevet testet ved hjælp a jUnit. <br>Her har vi testet de forskellige protokol kald, samt hvad vi modtager fra serveren.</strong></p>
+                        <p>I vores test bruger vi tråde til at standse testen indtil vi er klar til at køre den næste. Grunden til at der bliver brugt tråde i testen er at før vi kan køre den næste test bliver svaret nød til at være kommet frem eller vil resultatet måske være forkert. Hvis nu at der blev kaldt metoden send to gange efter hinanden er der ikke nogen garanti forhvilken besked der når først frem. Så ved hjælp af Thread.join kan vi vente på at svaret kommer tilbage før vi kører en ny test.</p>
+                        <p><strong>Hvis vi kigger på send metoden i testen, så kan vi se at vi:</strong><p> 
+                        <pre><code>@Test
+public void send() throws IOException, InterruptedException {
+    testString = "";
+    ChatClient client = new ChatClient();
+
+    client.connect("localhost", 9999);
+
+    Thread t1 = new Thread(client);
+
+    t1.start();
+
+    client.addObserver(new Observer() {
+
+        @Override
+        public void update(Observable o, Object arg) {
+            testString = (String) arg;
+            ChatClient cl = (ChatClient) o;
+            client.stop();
+        }
+    });
+
+    client.send("SEND#*#Hello");
+
+    t1.join();
+
+    assertEquals("MESSAGE#null#Hello", testString);
+}</code></pre>
+                        <ol>
+                            <li>Resetter vores <strong>testString</strong> - <em>som er den streng vi får resultatet i, i alle vores test.</em></li>
+                            <li>Opretter en ny <strong>ChatClient</strong></li>
+                            <li>Kører <strong>ChatClient's</strong> metode <strong>connect</strong></li>
+                            <li>Laver en ny tråd</li>
+                            <li>Starter tråden</li>
+                            <li>Tilføjer en observer gennem <strong>ChatClient's</strong> addObserver metode. Observarabel bliver tilføjet som en nested class da vi ikke skal bruge den senere, så det giver ikke nogen mening at gemme den i en variabel</li>
+                            <li>Oberverable har en metode der hedder update inde i denne bliver testString sat til det result der kommer til bare når der har været en update. Samt ClientServer bliver stoppet med metoden stop</li>
+                            <li>ChatClient metoden send bliver kørt</li>
+                            <li>Trådens metode join bliver kaldt, så den venter på at observer får et svar så den kan stoppe for ChatClient ved hjælp af metoden stop</li>
+                            <li>assertEquals tester på testString for at se om resultatet er som vi regner med.</li>
+                        </ol>
+                        
+                        <h4>Den fulde test kode er følgende:</h4>
+                        <pre><code>public class ChatTest {
+    public ChatTest() {
+    }
+    
+    static String testString = "";
+    
+    @BeforeClass
+    public static void setUpClass() throws IOException, InterruptedException {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String args[] = new String[]{"localhost", "9999"};
+                ChatServer.main(args);
+            }
+        }).start();
+        Thread.sleep(1000);
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+        ChatServer.stopServer();
+    }
+
+    @Test
+    public void send() throws IOException, InterruptedException {
+        testString = "";
+        ChatClient client = new ChatClient();
+        
+        client.connect("localhost", 9999);
+        
+        Thread t1 = new Thread(client);
+        
+        t1.start();
+        
+        client.addObserver(new Observer() {
+            
+            @Override
+            public void update(Observable o, Object arg) {
+                testString = (String) arg;
+                ChatClient cl = (ChatClient) o;
+                client.stop();
+            }
+        });
+        
+        client.send("SEND#*#Hello");
+        
+        t1.join();
+        
+        assertEquals("MESSAGE#null#Hello", testString);
+    }
+
+    @Test
+    public void user() throws IOException, InterruptedException {
+        testString = "";
+        ChatClient client = new ChatClient();
+        client.connect("localhost", 9999);
+        
+        Thread t1 = new Thread(client);
+        
+        t1.start();
+        
+        client.send("USER#Test");
+        
+        client.addObserver(new Observer() {
+            
+            @Override
+            public void update(Observable o, Object arg) {
+                testString = (String) arg;
+                ChatClient cl = (ChatClient) o;
+                client.stop();
+            }
+        });
+        
+        t1.join();
+        
+        assertEquals("USERS#Test", testString);
+    }
+
+    @Test
+    public void logout() throws IOException, InterruptedException {
+        testString = "";
+        
+        ChatClient client = new ChatClient();
+        ChatClient client2 = new ChatClient();
+        
+        client.connect("localhost", 9999);
+        client2.connect("localhost", 9999);     
+        
+        Thread t1 = new Thread(client);
+        Thread t2 = new Thread(client2);
+        
+        t1.start();
+        t2.start();
+        
+        client.send("USER#Test");
+        
+        sleep(1000);
+        
+        client.addObserver(new Observer() {
+            
+            @Override
+            public void update(Observable o, Object arg) {
+                System.out.println(arg);
+                if (arg.equals("USERS#Test")) {
+                    testString = (String) arg;
+                    ChatClient cl = (ChatClient) o;
+                    client.stop();
+                }
+            }
+        });
+        
+        client2.send("USER#Test2");
+        client2.stop();
+
+        t1.join(2000);
+        
+        assertEquals("USERS#Test", testString);
+        
+    }
+}</code></pre>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <h1>Tests</h1>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
-                        omnis voluptas assumenda est, omnis dolor repellendus. 
-                        Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
-                        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            </div>
+
+            <!-- GUI -->
+            <div class="container" id="gui">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <h1>GUI</h1>
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
+                            omnis voluptas assumenda est, omnis dolor repellendus. 
+                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
+                            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                    </div>
                 </div>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="./scripts/main.js"></script>
     </body>
 </html>

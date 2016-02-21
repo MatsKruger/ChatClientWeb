@@ -1,6 +1,7 @@
-body {
-    
-}
+
+/*html, body {
+    font-size: 100%;
+}*/
 #top {
     background: rgb(150,50,30);
 }
@@ -21,6 +22,17 @@ body {
     border-width: 0;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover, .nav>li.active>a {
     background: rgba(0,0,0, .2);
+}
+
+.main .container {
+    display: none;
+}
+.main .container.active {
+    display: block;
+}
+
+td, p {
+    max-width: 40em;
 }
